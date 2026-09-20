@@ -2,28 +2,36 @@
 <html>
 <head>
 <style>
-  /* Container to align the button to the top right */
-  .button-container {
-    display: block;    /* Forces the button to act like a block element */
-            width: 100vw;      /* Sets the width to 100% of the viewport/screen width */
-            border: none;      /* Removes default borders */
-            box-sizing: border-box; /* Ensures padding doesn't push the button past the screen edge */
-    padding: 10px; /* Optional spacing from the edges */
+  /* 1. Remove default browser margins so the button can touch the absolute edges */
+  body {
+    margin: 0;
+    padding: 0;
   }
 
+  /* 2. Remove the extra outer spacing that was shrinking the button area */
+  .button-container {
+    width: 100%;
+  }
+
+  /* 3. Apply the full-width block styles directly to the button */
   .fs-button {
-    background-color: #2563eb; /* Change color here */
+    display: block;            /* Forces the button to act like a block element */
+    width: 100vw;              /* Sets the width to 100% of the viewport/screen width */
+    box-sizing: border-box;    /* Ensures padding doesn't push the button past the screen edge */
+    
+    background-color: #2563eb; 
     color: white;
-    padding: 12px 24px;
+    padding: 16px 24px;        /* Symmetrical padding for a banner-style button */
     font-size: 16px;
     font-family: sans-serif;
     font-weight: bold;
     border: none;
-    border-radius: 6px;
+    border-radius: 0;          /* Removed border radius so it sits flush against the edges */
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: background 0.2s;
   }
+  
   .fs-button:hover {
     background-color: #1d4ed8;
   }
