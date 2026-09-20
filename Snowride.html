@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Container to align the button to the top right */
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px; /* Optional spacing from the edges */
+  }
+
+  .fs-button {
+    background-color: #2563eb; /* Change color here */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+  }
+  .fs-button:hover {
+    background-color: #1d4ed8;
+  }
+</style>
+</head>
+<body>
+
+<div class="button-container">
+  <button class="fs-button" onclick="openFullscreen()">↕Fullscreen↕</button>
+</div>
+
+<script>
+function openFullscreen() {
+  var gameUrl = "https://kkeysinc.github.io/WUnblocksi/clsnowrider.html"; 
+  var newTab = window.open("about:blank", "_blank");
+  
+  if (newTab) {
+    newTab.document.write(`
+      <html style="margin:0;padding:0;overflow:hidden;">
+        <head><title>Game Fullscreen</title></head>
+        <body style="margin:0;padding:0;overflow:hidden;">
+          <iframe src="${gameUrl}" style="border:none;width:100vw;height:100vh;margin:0;padding:0;"></iframe>
+        </body>
+      </html>
+    `);
+  } else {
+    alert("Please allow pop-ups for this site to open the game!");
+  }
+}
+</script>
+
+</body>
+</html>
