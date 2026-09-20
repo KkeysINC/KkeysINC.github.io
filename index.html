@@ -2,6 +2,15 @@
 <html>
 <head>
 <style>
+  /* Container to align the button to the top right */
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px; /* Optional spacing from the edges */
+  }
+
   .fs-button {
     background-color: #2563eb; /* Change color here */
     color: white;
@@ -22,7 +31,9 @@
 </head>
 <body>
 
-<button class="fs-button" onclick="openFullscreen()">🎮 Play Fullscreen</button>
+<div class="button-container">
+  <button class="fs-button" onclick="openFullscreen()">🎮 Play Fullscreen</button>
+</div>
 
 <script>
 function openFullscreen() {
