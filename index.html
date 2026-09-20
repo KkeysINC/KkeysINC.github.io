@@ -1,26 +1,48 @@
 <!DOCTYPE html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <script>
-        function create() {
-            var url = document.getElementById('input').value;
-            var win = window.open();
-            win.document.body.style.margin = '0';
-            win.document.body.style.height = '100vh';
-            var iframe = win.document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.margin = '0';
-            iframe.src = url;
-            win.document.body.appendChild(iframe);
-        }
-    
-    </script>        <input type="text" value="" placeholder="https://google.com" id='input' autofocus>
-        <button onclick='create()'>Create!</button>
-      
-    </body>
-</html>
+<html>
+<head>
+<style>
+  .fs-button {
+    background-color: #2563eb; /* Change color here */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+  }
+  .fs-button:hover {
+    background-color: #1d4ed8;
+  }
+</style>
+</head>
+<body>
 
+<button class="fs-button" onclick="openFullscreen()">🎮 Play Fullscreen</button>
+
+<script>
+function openFullscreen() {
+  var gameUrl = "YOUR_GAME_URL_HERE"; 
+  var newTab = window.open("about:blank", "_blank");
+  
+  if (newTab) {
+    newTab.document.write(`
+      <html style="margin:0;padding:0;overflow:hidden;">
+        <head><title>Game Fullscreen</title></head>
+        <body style="margin:0;padding:0;overflow:hidden;">
+          <iframe src="${gameUrl}" style="border:none;width:100vw;height:100vh;margin:0;padding:0;"></iframe>
+        </body>
+      </html>
+    `);
+  } else {
+    alert("Please allow pop-ups for this site to open the game!");
+  }
+}
+</script>
+
+</body>
+</html>
